@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Slot</title>
+</head>
+<body>
+    <h1>Add New Slot</h1>
+    <form method="POST">
+        <label for="service_id">Service:</label>
+        <select id="service_id" name="service_id" required>
+            {% for service in services %}
+            <option value="{{ service.service_id }}">{{ service.service_name }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="slot_date">Slot Date:</label>
+        <input type="date" id="slot_date" name="slot_date" required><br>
+        <label for="slot_time">Slot Time:</label>
+        <input type="time" id="slot_time" name="slot_time" required><br>
+        <label for="available">Available:</label>
+        <select id="available" name="available" required>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select><br>
+        <button type="submit">Add Slot</button>
+    </form>
+</body>
+</html>

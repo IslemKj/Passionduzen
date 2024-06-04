@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Booking</title>
+</head>
+<body>
+    <h1>Edit Booking</h1>
+    <form method="POST">
+        <label for="full_name">Full Name:</label>
+        <input type="text" id="full_name" name="full_name" value="{{ booking.full_name }}" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ booking.email }}" required><br>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" value="{{ booking.phone }}" required><br>
+        <label for="slot_id">Slot:</label>
+        <select id="slot_id" name="slot_id" required>
+            {% for slot in slots %}
+            <option value="{{ slot.slot_id }}" {% if slot.slot_id == booking.slot_id %}selected{% endif %}>{{ slot.slot_date }} - {{ slot.slot_time }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required>{{ booking.message }}</textarea><br>
+        <button type="submit">Update Booking</button>
+    </form>
+</body>
+</html>
